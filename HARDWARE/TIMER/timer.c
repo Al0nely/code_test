@@ -130,11 +130,14 @@ void TIM2_IRQHandler(void)
 			}
 			else if(t2==8)
 			{
-				first[6]=0x02;
-				USART2_SendData(first,length);	
+				if (calendar.min!=0)
+				{
+					first[6]=0x02;
+					USART2_SendData(first,length);	
+				}			
 			}
 			else if(t2==10)
-			{
+			{			
 				if(strcmp(weather,"晴")==0)
 				{
 					first[6]=0x03;
@@ -166,6 +169,7 @@ void TIM2_IRQHandler(void)
 				lock_key=0;
 				t2=0;
 				TIM_Cmd(TIM2, DISABLE);
+				printf("TIM2 DISABLE\r\n");
 				
 			}							
 	
@@ -173,6 +177,8 @@ void TIM2_IRQHandler(void)
 	}	    
 }
  
+
+
 //通用定时器中断初始化
 //这里始终选择为APB1的2倍，而APB1为36M
 //arr：自动重装值。

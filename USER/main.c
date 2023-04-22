@@ -111,6 +111,7 @@ void wifi_cmd()
 {
 	char i[50];
 	char *ptr = Data;
+	char check[100]; 
 	char *comma_ptr;
 	int year, month, day, hour, minute, second;
 	
@@ -131,80 +132,104 @@ void wifi_cmd()
 				comma_ptr = strchr(ptr, ';');
 				if (comma_ptr != NULL) 
 				{
-					strncpy(i, ptr, comma_ptr - ptr);
-					i[comma_ptr - ptr] = '\0';
+					strncpy(check, ptr, comma_ptr - ptr);
+					check[comma_ptr - ptr] = '\0';
 					ptr = comma_ptr + 1;
 				}
-				printf("i = %s\r\n",i);
-				
-				comma_ptr = strchr(ptr, ';');
-				if (comma_ptr != NULL) 
-				{
-					strncpy(place, ptr, comma_ptr - ptr);
-					place[comma_ptr - ptr] = '\0';
-					ptr = comma_ptr + 1;
-				}
-				printf("place = %s\r\n",place);
-				
-				comma_ptr = strchr(ptr, ';');
-				if (comma_ptr != NULL) 
-				{
-					strncpy(Now_temp, ptr, comma_ptr - ptr);
-					Now_temp[comma_ptr - ptr] = '\0';
-					ptr = comma_ptr + 1;
-				}
-				printf("Now_temp = %s\r\n",Now_temp);
-				
-				comma_ptr = strchr(ptr, ';');
-				if (comma_ptr != NULL) 
-				{
-					strncpy(weather, ptr, comma_ptr - ptr);
-					weather[comma_ptr - ptr] = '\0';
-					ptr = comma_ptr + 1;
-				}
-				printf("weather = %s\r\n",weather);
-				
-				comma_ptr = strchr(ptr, ';');
-				if (comma_ptr != NULL) 
-				{
-					strncpy(Today_temp, ptr, comma_ptr - ptr);
-					Today_temp[comma_ptr - ptr] = '\0';
-					ptr = comma_ptr + 1;
-				}
-				printf("Today_temp = %s\r\n",Today_temp);
-				
-				strcpy(Dampness, ptr);
-				printf("Dampness = %s\r\n",Dampness);
-			
-				
-				sscanf(i, "%d-%d-%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
-				printf("%d-%d-%d %d:%d:%d\r\n",year, month, day, hour, minute, second);
-				if((year!=calendar.w_year)||(month!=calendar.w_month)||(day!=calendar.w_date)\
-					||(hour!=calendar.hour)||(minute-calendar.min>1)||(second-calendar.sec>2))
-				{
-					BKP_WriteBackupRegister(BKP_DR1, 0X4050);
-				}
-			
-				RTC_Init(year,month,day,hour,minute,second+1);
-				
-				ptr = place;
-				comma_ptr = strchr(ptr, ',');
-				if (comma_ptr != NULL) 
-				{
-					strncpy(place_c, ptr, comma_ptr - ptr);
-					place_c[comma_ptr - ptr] = '\0';
-					ptr = comma_ptr + 1;
-				}
-				printf("place_c = %s\r\n",place_c);
-				
-				strcpy(place_p, ptr);
-				printf("place_p = %s\r\n",place_p);
-				
-				LCD_Fill(0,18*6,128,18*7,GRAY);
+				printf("check = %s\r\n",check);
 
-				USART3_RX_STA=0;
-				LCD_display();
-				t_se = 10;
+				if (strcmp(check,"OK")==0)
+				{
+					comma_ptr = strchr(ptr, ';');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(i, ptr, comma_ptr - ptr);
+						i[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("i = %s\r\n",i);
+					
+					comma_ptr = strchr(ptr, ';');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(place, ptr, comma_ptr - ptr);
+						place[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("place = %s\r\n",place);
+					
+					comma_ptr = strchr(ptr, ';');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(Now_temp, ptr, comma_ptr - ptr);
+						Now_temp[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("Now_temp = %s\r\n",Now_temp);
+					
+					comma_ptr = strchr(ptr, ';');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(weather, ptr, comma_ptr - ptr);
+						weather[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("weather = %s\r\n",weather);
+					
+					comma_ptr = strchr(ptr, ';');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(Today_temp, ptr, comma_ptr - ptr);
+						Today_temp[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("Today_temp = %s\r\n",Today_temp);
+					
+					strcpy(Dampness, ptr);
+					printf("Dampness = %s\r\n",Dampness);
+				
+					
+					sscanf(i, "%d-%d-%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
+					printf("%d-%d-%d %d:%d:%d\r\n",year, month, day, hour, minute, second);
+					if((year!=calendar.w_year)||(month!=calendar.w_month)||(day!=calendar.w_date)\
+						||(hour!=calendar.hour)||(minute-calendar.min>1)||(second-calendar.sec>2))
+					{
+						BKP_WriteBackupRegister(BKP_DR1, 0X4050);
+					}
+				
+					RTC_Init(year,month,day,hour,minute,second+1);
+					
+					ptr = place;
+					comma_ptr = strchr(ptr, ',');
+					if (comma_ptr != NULL) 
+					{
+						strncpy(place_c, ptr, comma_ptr - ptr);
+						place_c[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 1;
+					}
+					printf("place_c = %s\r\n",place_c);
+					
+					strcpy(place_p, ptr);
+					printf("place_p = %s\r\n",place_p);
+					
+					LCD_Fill(0,18*6,128,18*7,GRAY);
+
+					USART3_RX_STA=0;
+					LCD_display();
+					t_se = 10;
+				}
+				else
+				{
+					LED0=0;
+					LED1=0;
+					delay_ms(1000);
+					LED0=1;
+					LED1=1;
+					t_se=0;
+				}
+				
+
+				
 			}
 		}
 		
@@ -243,6 +268,7 @@ void LCD_display()
 		LCD_Fill(16*6,18*4,16*8,18*5,GRAY);
 		LCD_ShowString(16*6+8,18*4,(const u8*)Now_temp,BLACK,GRAY,16,1);
 		
+		
 		LCD_ShowChinese(0,18*5,"湿度",BLACK,GRAY,16,1);
 		LCD_ShowString(16*2,18*5,":",BLACK,GRAY,16,1);
 		LCD_ShowString(16*2+8,18*5,"    %",BLACK,GRAY,16,1);
@@ -266,7 +292,7 @@ void LCD_display()
 5:多云
 6:小雨
 7:大雨
-
+8:转
 
 */
 extern uint8_t voice[8];
@@ -283,43 +309,6 @@ void KEY()
 			{
 					case 1 :   	
 								TIM_Cmd(TIM2, ENABLE); 
-//								first[6]=0x01;
-//								USART2_SendData(first,length);
-//								delay_ms(1000);
-//									voice[6]=0x00+calendar.hour;
-//									USART2_SendData(voice,length);
-//								delay_ms(1000);
-//									final[6]=0x00+calendar.min;
-//									USART2_SendData(final,length);
-//								delay_ms(1000);
-//									first[6]=0x02;
-//									USART2_SendData(first,length);	
-//								delay_ms(1000);
-//									if(strcmp(weather,"晴")==0)
-//									{
-//										first[6]=0x03;
-//										USART2_SendData(first,length);
-//									}
-//									else if(strcmp(weather,"阴")==0)
-//									{
-//										first[6]=0x04;
-//										USART2_SendData(first,length);
-//									}
-//									else if(strcmp(weather,"多云")==0)
-//									{
-//										first[6]=0x05;
-//										USART2_SendData(first,length);
-//									}
-//									else if(strcmp(weather,"小雨")==0)
-//									{
-//										first[6]=0x06;
-//										USART2_SendData(first,length);
-//									}
-//									else if(strcmp(weather,"大雨")==0)
-//									{
-//										first[6]=0x07;
-//										USART2_SendData(first,length);
-//									}
 					break;
 			}
 		}
