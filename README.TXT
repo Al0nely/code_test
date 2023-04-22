@@ -1,45 +1,7 @@
-¡ôÊµÑéÆ÷²Ä:
-	Õ½½¢STM32F103¿ª·¢°å
-	
-¡ôÊµÑéÄ¿µÄ:
-	Ñ§Ï°GPIO×÷ÎªÊä³öµÄÊ¹ÓÃ
-	
-¡ôÓ²¼þ×ÊÔ´:
-	1,DS0(Á¬½ÓÔÚPB5) 
-	2,DS1(Á¬½ÓÔÚPE5)
-	
-¡ôÊµÑéÏÖÏó:
-	±¾ÊµÑéÍ¨¹ý´úÂë¿ØÖÆ¿ª·¢°åÉÏµÄÁ½¸öLED£ºDS0ºÍDS1½»ÌæÉÁË¸£¬ÊµÏÖÀàËÆÅÜÂíµÆµÄÐ§¹û¡£ 
-	
-¡ô²Î¿¼×ÊÁÏ£º
-    ÊÖ²á£º¡¶STM32F1¿ª·¢Ö¸ÄÏ-¿âº¯Êý°æ±¾¡·µÚ6ÕÂ¡£
-    ÊÓÆµ½Ì³Ì£º¡¶ÊÖ°ÑÊÖ½ÌÄãÑ§STM32¡·ÏµÁÐÊÓÆµ
-    ²Î¿¼Êé±¾£º¡¶Ô­×Ó½ÌÄãÍæSTM32-¿âº¯Êý°æ±¾¡·
-		   
--------------------------------------------------------------------------------------------
-
-¡ôÆäËûÖØÒªÁ¬½Ó£º
-  ¿ª·¢°å¹âÅÌ×ÊÁÏÏÂÔØµØÖ·£¨ÊÓÆµ+ÎÄµµ+Ô´ÂëµÈ£©£ºhttp://www.openedv.com/posts/list/13912.htm
-  Ìí¼ÓÎ¢ÐÅ¹«ÖÚÆ½Ì¨·½·¨£ºhttp://www.openedv.com/posts/list/45157.htm
-  
-
-¡ôÓÑÇéÌáÊ¾£ºÈç¹ûÄúÏëÒÔºó¼°Ê±Ãâ·ÑµÄÊÕµ½ÕýµãÔ­×ÓËùÓÐ¿ª·¢°å×ÊÁÏ¸üÐÂÔö¼ÓÍ¨Öª£¬Çë¹Ø×¢Î¢ÐÅ¹«ÖÚÆ½Ì¨£º
-
- 2ÖÖÌí¼Ó·½·¨£º£¨¶¯¶¯ÊÖÌáÉýÄúµÄÑ§Ï°Ð§ÂÊ£¬¾ªÏ²²»¶ÏÅ¶£©
-£¨1£©´ò¿ªÎ¢ÐÅ->Ìí¼ÓÅóÓÑ->¹«ÖÚºÅ->ÊäÈë¡°ÕýµãÔ­×Ó¡±->µã»÷¹Ø×¢
-£¨2£©´ò¿ªÎ¢ÐÅ->Ìí¼ÓÅóÓÑ->ÊäÈë¡°alientek_stm32"->µã»÷¹Ø×¢
-
- ¾ßÌåÎ¢ÐÅÌí¼Ó·½·¨£¬Çë²Î¿¼Ìû×Ó£ºhttp://www.openedv.com/posts/list/45157.htm
-
- 
-
-			ÕýµãÔ­×Ó@ALIENTEK 
-			¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾
-			µç»°£º020-38271790
-			´«Õæ£º020-36773971
-			¹ºÂò£ºhttp://eboard.taobao.com
-			¹«Ë¾ÍøÕ¾£ºwww.alientek.com
-			¼¼ÊõÂÛÌ³£ºwww.openedv.com
+    è¿™æ˜¯æˆ‘çš„æ¯•ä¸šè®¾è®¡ä»£ç ï¼Œç”¨äºŽè¯•éªŒGitåŠŸèƒ½ã€‚
+    æˆ‘çš„æ¯•ä¸šè®¾è®¡ä½¿ç”¨çš„æ˜¯STM32F103C8T6ä½œä¸ºä¸»æŽ§ï¼ŒæŽ§åˆ¶esp8266æ¨¡å—åŠTFTLCDï¼ŒAHT20åŠminiMP3æ¨¡å—ï¼Œ
+ç•™äº†ä¸€ä¸ªä¸²å£ä½œä¸ºè°ƒè¯•å£ï¼Œæˆ–è€…åŽé¢æŽ¥GPSæ¨¡å—å®šä½ã€‚
+    å¦‚æžœæ—¶é—´å…è®¸ï¼Œæˆ–è®¸ä¼šæ¢æˆFreeRTOSä¼šå¥½äº›ï¼Œä¸è¿‡çŽ°åœ¨æš‚æ—¶æ‡’å¾—æŠ˜è…¾ï¼Œå…ˆå­¦ä¹ ä¸€ä¸‹Gitæ€Žä¹ˆä½¿ç”¨ã€‚
 			
 			
 			
