@@ -16,8 +16,10 @@ char place_c[50];
 char place_p[50];
 char Now_temp[50];
 char weather[50];
-char Today_temp[50];
+char firstWeather[50];
+char secondWeather[50];
 
+char Today_temp[50];
 char Dampness[50];
 
 
@@ -103,9 +105,12 @@ void Init()
 	delay_ms(1000);
 	LED0=1;
 	//IWDG_Init(4,625);
-	//TIM4_Int_Init(3600,10000-1);
+	TIM_Cmd(TIM4, DISABLE); //关闭定时器7
+	TIM4_Int_Init(3600,10000);
+	TIM_Cmd(TIM2, DISABLE); //关闭定时器7
 	TIM2_Int_Init(3600,10000);
 }
+
 
 void wifi_cmd()
 {
@@ -212,28 +217,32 @@ void wifi_cmd()
 					strcpy(place_p, ptr);
 					printf("place_p = %s\r\n",place_p);
 					
+					ptr = weather;
+					comma_ptr = strstr(ptr, "转");
+					if (comma_ptr != NULL) 
+					{
+						// 字符串中包含转字
+						strncpy(firstWeather, ptr, comma_ptr - ptr);
+						firstWeather[comma_ptr - ptr] = '\0';
+						ptr = comma_ptr + 2;
+						// 使用 strncpy() 将转字后面的天气字符串复制到 secondWeather 中
+						strncpy(secondWeather, ptr, sizeof(secondWeather) - 1);
+						secondWeather[sizeof(secondWeather) - 1] = '\0';
+					} 
+					else 
+					{
+						// 字符串中没有转字，只有一个天气值
+						strcpy(firstWeather, weather);
+					}
+					printf("firstWeather = %s , secondWeather = %s\r\n",firstWeather,secondWeather);
+
 					LCD_Fill(0,18*6,128,18*7,GRAY);
 
 					USART3_RX_STA=0;
 					LCD_display();
 					t_se = 10;
-					LED0=0;
-					LED1=0;
-					delay_ms(1000);
-					LED0=1;
-					LED1=1;
-				}
-				else
-				{
-					LED0=0;
-					LED1=0;
-					delay_ms(1000);
-					LED0=1;
-					LED1=1;
-					t_se=0;
-				}
-				
-
+					TIM_Cmd(TIM4, ENABLE); //关闭定时器7
+				}	
 				
 			}
 		}
@@ -292,13 +301,36 @@ void LCD_display()
 /*
 1:现在是
 2:分
-3:晴
-4:阴
-5:多云
-6:小雨
-7:大雨
-8:转
 
+6:大雨
+7:大雨转晴
+8:大雨转阴
+9:大雨转多云
+10:大雨转小雨
+
+11:多云
+12:多云转晴
+13:多云转阴
+14:多云转小雨
+15:多云转大雨
+
+16:晴
+17:晴转阴
+18:晴转多云
+19:晴转小雨
+20:晴转大雨
+
+21:小雨
+22:小雨转晴
+23:小雨转阴
+24:小雨转多云
+25:小雨转大雨
+
+26:阴
+27:阴转晴
+28:阴转多云
+29:阴转小雨
+30:阴转大雨
 */
 extern uint8_t voice[8];
 extern uint8_t first[8];
