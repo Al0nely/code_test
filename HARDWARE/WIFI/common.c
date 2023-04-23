@@ -324,6 +324,7 @@ void connectwifi2()
 		delay_ms(1000);
 		u3_printf("search_weather\r\n");
 		t_se=9;
+		
 		break;
 	default:
 		break;

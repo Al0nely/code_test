@@ -217,6 +217,11 @@ void wifi_cmd()
 					USART3_RX_STA=0;
 					LCD_display();
 					t_se = 10;
+					LED0=0;
+					LED1=0;
+					delay_ms(1000);
+					LED0=1;
+					LED1=1;
 				}
 				else
 				{
