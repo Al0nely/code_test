@@ -68,7 +68,7 @@ void TIM4_IRQHandler(void)
 		if(t_se==10)
 		{
 			t1++;
-			printf("%d\r\n",t1);
+			//printf("%d\r\n",t1);
 			if(t1==1)
 			{
 				LED0=0;
@@ -311,7 +311,7 @@ void TIM2_IRQHandler(void)
 			lock_key=0;
 			t2=0;
 			TIM_Cmd(TIM2, DISABLE);
-			printf("TIM2 DISABLE\r\n");
+			//printf("TIM2 DISABLE\r\n");
 			
 		}							
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update  );  //清除TIM3更新中断标志 
