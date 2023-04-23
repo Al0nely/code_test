@@ -156,7 +156,7 @@ void TIM2_IRQHandler(void)
 		}
 		else if(t2==10)
 		{			
-			if (secondWeather != NULL) 
+			if (*secondWeather !=NULL) 
 			{
 				// 字符串中包含转字，并且已经成功分割成前后两个子字符串
 				// firstWeather 存储转前的天气，secondWeather 存储转后的天气
