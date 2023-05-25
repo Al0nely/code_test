@@ -276,9 +276,7 @@ void LCD_display()
 		LCD_ShowString(16*5+8,18*4,"/",BLACK,GRAY,16,1);
 		LCD_ShowChinese(16*5+16,18*4,"    ¡æ",BLACK,GRAY,16,1);
 		
-//		LCD_Fill(16*2+8,18*4,16*4+8,18*5,GRAY);
-//		LCD_ShowIntNum(16*3,18*4,AHT20.Temp,2,BLACK,GRAY,16);
-		//LCD_ShowFloatNum1(16*3,18*4,AHT20.Temp,2,BLACK,GRAY,16);
+
 		LCD_Fill(16*6,18*4,16*8,18*5,GRAY);
 		LCD_ShowString(16*6+8,18*4,(const u8*)Now_temp,BLACK,GRAY,16,1);
 		
@@ -289,9 +287,6 @@ void LCD_display()
 		LCD_ShowString(16*5,18*5,"/",BLACK,GRAY,16,1);
 		LCD_ShowString(16*5+16,18*5,"    %",BLACK,GRAY,16,1);
 		
-		//LCD_Fill(16*2+8,18*5,16*4,18*6,GRAY);
-		//LCD_ShowIntNum(16*3,18*5,AHT20.RH,2,BLACK,GRAY,16);
-		//LCD_ShowString(16*3,18*5,(const u8*)Dampness_w,BLACK,GRAY,16,1);
 		LCD_Fill(16*6,18*5,16*8,18*6,GRAY);
 		LCD_ShowString(16*6+8,18*5,(const u8*)Dampness,BLACK,GRAY,16,1);
 		

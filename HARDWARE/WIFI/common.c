@@ -265,6 +265,10 @@ void connectwifi2()
 				delay=0;
 		//	printf("t_se = 4,OK\r\n");
 			}
+			else
+			{
+				delay=0;
+			}
 			
 				USART3_RX_STA=0;
 		}
@@ -306,6 +310,10 @@ void connectwifi2()
 				t_se=7;
 				delay=0;
 		//	printf("t_se = 6,TCP,OK\r\n");
+			}
+			else
+			{
+				delay=0;
 			}
 			
 				USART3_RX_STA=0;

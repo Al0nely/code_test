@@ -12,7 +12,7 @@
 #include "wdg.h"
 #include "rtc.h"
 #include "aht20.h"
-//#include "AAHT20.h"
+
 #include <stdlib.h>
 #include <string.h>
 
