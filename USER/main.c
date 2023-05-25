@@ -124,7 +124,7 @@ void wifi_cmd()
 	{
 		if(USART3_RX_STA&0X8000)
 		{
-			//USART3_RX_BUF[USART3_RX_STA&0X7FFF]=0;
+			
 			res_data();
 			if(*Data == NULL)
 			{

@@ -309,7 +309,6 @@ void connectwifi2()
 			{
 				t_se=7;
 				delay=0;
-		//	printf("t_se = 6,TCP,OK\r\n");
 			}
 			else
 			{
@@ -323,11 +322,9 @@ void connectwifi2()
 	case 7:
 		atk_8266_send_cmd("AT+CIPMODE=1","OK",100);
 		atk_8266_send_cmd("AT+CIPSEND",NULL,100);
-	//	printf("Send Start!\r\n");
 		t_se=8;
 		break;
 	case 8:
-	//	printf("t_se = 8,Sending!\r\n");
 		USART3_RX_STA=0;
 		delay_ms(1000);
 		u3_printf("search_weather\r\n");
