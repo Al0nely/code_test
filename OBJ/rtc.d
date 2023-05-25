@@ -52,3 +52,4 @@
 ..\obj\rtc.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\rtc.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\rtc.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\string.h
+..\obj\rtc.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\math.h

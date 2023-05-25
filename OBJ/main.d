@@ -53,3 +53,4 @@
 ..\obj\main.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\main.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\main.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\string.h
+..\obj\main.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\math.h

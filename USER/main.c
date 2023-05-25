@@ -22,8 +22,6 @@ char secondWeather[50];
 char Today_temp[50];
 char Dampness[50];
 
-
-//vu8 check_sec;
 vu8 clock;
 
 extern u16 USART3_RX_STA;  
@@ -60,7 +58,6 @@ int main(void)
 		}
 	
 		//IWDG_Feed();
-		//connectwifi();
 		connectwifi2();
 		wifi_cmd();
 		
@@ -105,9 +102,9 @@ void Init()
 	delay_ms(1000);
 	LED0=1;
 	//IWDG_Init(4,625);
-	TIM_Cmd(TIM4, DISABLE); //关闭定时器7
+	TIM_Cmd(TIM4, DISABLE); 
 	TIM4_Int_Init(3600,10000);
-	TIM_Cmd(TIM2, DISABLE); //关闭定时器7
+	TIM_Cmd(TIM2, DISABLE); 
 	TIM2_Int_Init(3600,10000);
 }
 
@@ -197,7 +194,7 @@ void wifi_cmd()
 					sscanf(i, "%d-%d-%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
 					printf("%d-%d-%d %d:%d:%d\r\n",year, month, day, hour, minute, second);
 					if((year!=calendar.w_year)||(month!=calendar.w_month)||(day!=calendar.w_date)\
-						||(hour!=calendar.hour)||(minute-calendar.min>1)||(second-calendar.sec>2))
+						||(hour!=calendar.hour)||(abs(minute-calendar.min)>1)||(abs(second-calendar.sec)>2))
 					{
 						BKP_WriteBackupRegister(BKP_DR1, 0X4050);
 					}
@@ -332,7 +329,6 @@ extern uint8_t first[8];
 extern uint8_t final[8];
 void KEY()
 {
-//	uint16_t length = sizeof(voice) / sizeof(uint8_t);
 	u8 key;
 	key = key_scanf(1);
 		if(key)

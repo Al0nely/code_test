@@ -52,3 +52,4 @@
 ..\obj\common.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\common.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\common.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\string.h
+..\obj\common.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\math.h

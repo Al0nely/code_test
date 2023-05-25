@@ -52,3 +52,4 @@
 ..\obj\usart.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\usart.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\usart.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\string.h
+..\obj\usart.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\math.h

@@ -52,3 +52,4 @@
 ..\obj\timer.o: ..\HARDWARE\LCD\lcd_init.h
 ..\obj\timer.o: ..\HARDWARE\AHT20\aht20.h
 ..\obj\timer.o: ..\HARDWARE\IIC\myiic.h
+..\obj\timer.o: D:\GongCheng\keil_mdk\ARM\ARMCC\Bin\..\include\math.h
